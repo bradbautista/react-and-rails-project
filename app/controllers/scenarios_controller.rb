@@ -18,14 +18,14 @@ class ScenariosController < ApplicationController
     @prompt = Prompt.find_by(prompt_type: "scenario_prompt")
 
     client = OpenAI::Client.new(
-      access_token: ENV['OPENAI_API_KEY'],
-      organization_id: ENV['OPENAI_ORGANIZATION_ID']
+      access_token: ENV["OPENAI_API_KEY"],
+      organization_id: ENV["OPENAI_ORGANIZATION_ID"]
     )
 
     response = client.chat(
       parameters: {
         model: "gpt-3.5-turbo",
-        messages: [{ role: "system", content: @prompt.content }],
+        messages: [ { role: "system", content: @prompt.content } ],
         temperature: 1.5
       }
     )
@@ -42,11 +42,11 @@ class ScenariosController < ApplicationController
       scenario = Scenario.create(description: response.dig("choices", 0, "message", "content"))
       render json: scenario, status: :created
     else
-      render json: { error: 'Failed to generate scenario content' }, status: :unprocessable_entity
+      render json: { error: "Failed to generate scenario content" }, status: :unprocessable_entity
     end
   rescue StandardError => e
     Rails.logger.error("Error in OpenAI API call: #{e}")
-    render json: { error: 'Internal Server Error' }, status: :internal_server_error
+    render json: { error: "Internal Server Error" }, status: :internal_server_error
   end
 
   # PATCH/PUT /scenarios/1

@@ -1,7 +1,7 @@
 class OutcomesController < ApplicationController
   before_action :set_outcome, only: %i[ show update destroy ]
-  YES = 'yes'.freeze
-  NO = 'no'.freeze
+  YES = "yes".freeze
+  NO = "no".freeze
 
   # GET /outcomes
   def index
@@ -20,20 +20,20 @@ class OutcomesController < ApplicationController
     begin
       request_data = JSON.parse(request.body.read)
     rescue JSON::ParserError => e
-      render json: { error: 'Invalid JSON in request body' }, status: :bad_request
+      render json: { error: "Invalid JSON in request body" }, status: :bad_request
       return
     end
 
-    scenario = Scenario.find(request_data['scenarioId'])
-    prompt = Prompt.where(prompt_type: 'outcome_prompt').first
-    user_choice = request_data['choice']
+    scenario = Scenario.find(request_data["scenarioId"])
+    prompt = Prompt.where(prompt_type: "outcome_prompt").first
+    user_choice = request_data["choice"]
 
     # do not trust userland, match request value to constant
     choice = (user_choice == YES || user_choice == NO) ? user_choice : NO
 
     client = OpenAI::Client.new(
-        access_token: ENV['OPENAI_API_KEY'],
-        organization_id: ENV['OPENAI_ORGANIZATION_ID']
+        access_token: ENV["OPENAI_API_KEY"],
+        organization_id: ENV["OPENAI_ORGANIZATION_ID"]
     )
 
     response = client.chat(
@@ -43,7 +43,7 @@ class OutcomesController < ApplicationController
                 { role: "system", content: "#{prompt.content} #{scenario.description}" },
                 { role: "user", content: choice }
             ],
-            temperature: 1.5,
+            temperature: 1.5
         }
     )
 
@@ -57,7 +57,7 @@ class OutcomesController < ApplicationController
       outcome = Outcome.create(result: response.dig("choices", 0, "message", "content"), scenario_id: scenario.id)
       render json: outcome, status: :created
     else
-      render json: { error: 'Failed to generate outcome content.' }, status: :unprocessable_entity
+      render json: { error: "Failed to generate outcome content." }, status: :unprocessable_entity
     end
   end
 
