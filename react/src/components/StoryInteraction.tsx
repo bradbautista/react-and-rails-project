@@ -124,7 +124,7 @@ const StoryInteraction = () => {
             return (
                 <>
                     <p className="passage-text">{scenario.description}</p>
-                    <p className="prompt-text">DO YOU OPEN THE BOX?</p>
+                    <p className="text3xl font-bold underline">DO YOU OPEN THE BOX?</p>
                 </>
             );
         }
