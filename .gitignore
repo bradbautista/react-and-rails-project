@@ -1,0 +1,47 @@
+# env files
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules and build artifacts
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor and IDE directories and files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Rails & Ruby sensitive files
+config/credentials.yml.enc
+config/master.key
+config/database.yml
+
+# Temporary and build files
+tmp/
+log/
+storage/
+vendor/
+
+# Deployment and Docker files
+.dockerignore
+Dockerfile
+.kamal/
+
+# Other IDE and OS-specific files
+*.bak
+*.swp

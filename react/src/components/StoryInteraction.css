@@ -1,0 +1,49 @@
+.story-card {
+    background-color: #2a323d;
+    width: 100%;
+    max-width: 30rem;
+    padding: 2rem;
+}
+
+.passage-text {
+    color: #f0f0f0;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.prompt-text {
+    margin-top: 50px;
+    color: crimson;
+    font-size: 2rem;
+    line-height: 1.75rem;
+    text-align: center;
+    font-family: 'Bodoni 72';
+    letter-spacing: 0.25px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.choice-button {
+    border-color: #f0f0f0 !important;
+    color: #f0f0f0 !important;
+}
+
+.choice-button:hover {
+    background-color: rgba(240, 240, 240, 0.1) !important;
+}
+
+.error-text {
+    text-align: center;
+    color: #ff6b6b;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
