@@ -1,5 +1,3 @@
-Readme
-
 Hello! Welcome to a quick game I threw together to play with OpenAI, dip my toes into Ruby/Rails, and brush back up on React with TypeScript.
 
 In the game, the user is presented with a randomized, AI-generated fictional scenario in which they encounter a closed box. The user is then given the choice of whether to open the box or not, and gets a generated ending based on their choice.
