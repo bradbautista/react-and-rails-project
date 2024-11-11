@@ -2,8 +2,8 @@
 
 one:
   result: MyText
-  scenario_id: 1
+  scenario: one
 
 two:
   result: MyText
-  scenario_id: 1
+  scenario: one

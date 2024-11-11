@@ -12,7 +12,7 @@ class PromptsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create prompt" do
     assert_difference("Prompt.count") do
-      post prompts_url, params: { prompt: { content: @prompt.content, title: @prompt.title } }, as: :json
+      post prompts_url, params: { prompt: { content: @prompt.content, prompt_type: @prompt.prompt_type } }, as: :json
     end
 
     assert_response :created
@@ -24,7 +24,7 @@ class PromptsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update prompt" do
-    patch prompt_url(@prompt), params: { prompt: { content: @prompt.content, title: @prompt.title } }, as: :json
+    patch prompt_url(@prompt), params: { prompt: { content: @prompt.content, prompt_type: @prompt.prompt_type } }, as: :json
     assert_response :success
   end
 
