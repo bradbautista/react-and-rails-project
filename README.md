@@ -9,9 +9,9 @@ It looks like this:
 ![](open-the-box-demo-gif.gif)
 
 ## Installation
-You will need to provide your own OpenAI API key and OpenAI organization ID for the client calls.
+You will need to provide your own OpenAI API key and OpenAI organization ID for the client calls. cp .env.example .env and add the appropriate values.
 
-Install your dependencies, `npm run dev` and `rails s`.
+Install your dependencies, then `npm run dev` and `rails s`.
 
 ## Tech
-This project was made using [Vite Ruby](https://vite-ruby.netlify.app/), React and the OpenAI API. For now, it uses PrimeReact as a UI library, but I will probably add Tailwind so I can play with some shadcn-derived libraries that look fun.
+This project was made using [Vite Ruby](https://vite-ruby.netlify.app/), React and the OpenAI API. For now, it uses PrimeReact as a UI library, but [I will probably add Tailwind so I can play with some shadcn-derived libraries that look fun](https://github.com/bradbautista/react-and-rails-project/pull/1).
